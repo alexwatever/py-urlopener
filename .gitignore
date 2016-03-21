@@ -1,6 +1,9 @@
 
 # loose files
-index.html
+*.pyc
+*.pyo
+*.mo
+*.log
 
 # dependencies
 flask
