@@ -1,0 +1,12 @@
+<html>
+  <head>
+    {% if title %}
+      <title>{{ title }} - URL Tab Opener</title>
+    {% else %}
+      <title>Welcome to URL Tab Opener</title>
+    {% endif %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
