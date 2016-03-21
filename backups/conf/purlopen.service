@@ -1,0 +1,18 @@
+[Unit]
+Description=uWSGI server instance configured to serve py-urlopener
+After=network.target
+
+[Service]
+User=iamlolz
+Group=nginx
+Restart=always
+WorkingDirectory=/home/iamlolz/purlopen
+Environment="PATH=/home/iamlolz/purlopen/flask/bin"
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=purlopen
+ExecStart=/home/iamlolz/purlopen/flask/bin/uwsgi --ini wsgi.ini
+
+[Install]
+WantedBy=multi-user.target
+

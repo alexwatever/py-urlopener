@@ -4,6 +4,7 @@
 *.pyo
 *.mo
 *.log
+app.sock
 
 # dependencies
 flask
