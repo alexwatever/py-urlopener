@@ -12,31 +12,34 @@ $(document).ready(function() {
     e.preventDefault();
 
     // store textarea field into variable
-    var data = document.getElementById('textareaURLs').value;
+    var lines = $('#textareaURLs').val().split(/\n/);
 
-    // store url in variable
-    var url = data;
+    // create empty variables
+    var texts = []; // for array of urls
+    var win = ''; // for opening urls in tabs
 
-    // append http if does not exist
-    if (!url.match(/^[a-zA-Z]+:\/\//))
-    {
-      url = 'http://' + url;
-    }
+    // loop through list of urls to validate
+    for (var i=0; i < lines.length; i++) {
+      // only manage this line if it contains a non whitespace character.
+      if (/\S/.test(lines[i])) {
 
-    // open url
-    var win = window.open(url, '_blank');
+        // validate url and add http protocol if missing
+        if (!lines[i].match(/^[a-zA-Z]+:\/\//))
+        {
+          lines[i] = 'http://' + lines[i];
+        }
 
-    // focus on opened tab or alert that function is disabled
-    if(win) {
-      // if new tab is allowed
-      win.focus();
-      url = '';
-      win = '';
-    } else {
-      // if new tab is not allowed
-      alert('Please allow popups for this site');
-      url = '';
-      win = '';
+        // push line to array
+        texts.push($.trim(lines[i]));
+      };
+    };
+
+    // get length of array
+    var textsLength = texts.length;
+
+    // loop through array of urls and open
+    for (var i=0; i < textsLength; i++) {
+      win = window.open(texts[i], '_blank');
     };
   });
 });
