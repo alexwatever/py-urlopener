@@ -1,52 +1,135 @@
-/* Custom Stylesheet */
+/*
+/* Custom Stylesheet
+/*
+/* Project by Alex Watson
+/*
+/************************/
 
-nav ul a,
-nav .brand-logo {
-  color: #444;
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+/* Text */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #26a69a;
+  text-decoration: underline;
 }
 
 p {
   line-height: 2rem;
 }
 
-.button-collapse {
-  color: #26a69a;
-}
 
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
+/* Navigation */
+body > nav {
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}   
 
-.parallax-container .section {
-    width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
+a.brand-logo {
   font-size: inherit;
+  margin: 1.5em 0;
+  padding: 0 0 5px 0;
+  line-height: initial;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all ease-in-out 0.25s;
 }
 
+a.brand-logo:hover,
+a.brand-logo:focus,
+a.brand-logo:active {
+  color: rgba(255, 255, 255, 0.901961);
+  border-color: rgba(255, 255, 255, 0.901961);
+  text-decoration: none;
+}
+
+nav ul li:hover,
+nav ul li:focus,
+nav ul li:active {
+  background-color: transparent!important;
+}
+
+nav ul li a {
+  margin: 1.5em 15px;
+  padding: 0 0 5px 0;
+  font-weight: 600;
+  line-height: initial;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all ease-in-out 0.25s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a:active {
+  color: rgba(255, 255, 255, 0.901961);
+  border-color: rgba(255, 255, 255, 0.901961);
+  text-decoration: none;
+}
+
+
+/* Main */
+main {
+  flex: 1 0 auto;
+  margin: -67px 0 0 0;
+  padding: 67px 0 0 0;
+  color: #fff;
+  background: url('/static/images/bg-wireframe1.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  font-size: 2.5em;
+}
+
+
+/* Content Area */
+#linkCollection {
+  max-height: 99999px;
+  transition: max-height 5s ease-in;
+}
+
+#linkCollection.hideCollection {
+  border: 0;
+  max-height: 0;
+  transition: max-height 5s ease-out;
+  overflow: hidden;
+}
+
+#linkCollection > h4 {
+  margin: 0;
+  font-size: initial;
+}
+
+.collection-item > div {
+  max-width: 90%;
+}
+
+
+/* Footer */
 footer.page-footer {
   margin: 0;
 }
