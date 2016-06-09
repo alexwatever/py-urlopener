@@ -113,7 +113,7 @@ function openURLs(urlArray, arrayLength, skipped) {
 
   // loop through array of urls and open
   for (var i=0; i < arrayLength; i++) {
-    //win = window.open(urlArray[i], '_blank');
+    win = window.open(urlArray[i], '_blank');
   };
 };
 
@@ -128,10 +128,20 @@ function listURLs(urlArray, arrayLength, skipped) {
   // unhide results table
   document.getElementById('linkCollection').className = 'collection with-header white left-align';
 
+  // variables for building html list of urls
+  var listTitleHTML = '<h4 class="collection-header grey-text text-darken-3">Submitted URLs</h4>';
+  var listBodyHTML = '';
+
   // loop through array of urls and open
   for (var i=0; i < arrayLength; i++) {
-    //
+    listBodyHTML += '<a href="' + urlArray[i] + '" class="collection-item truncate" target="_blank"><div class="left truncate">' + urlArray[i] + '</div><span class="secondary-content"><i class="material-icons">open_in_new</i></span></a>';
   };
+
+  // concatenate html to be injected
+  listHTML = listTitleHTML + listBodyHTML;
+
+  // inject html into page
+  document.getElementById('linkCollection').innerHTML = listHTML;
 };
 
 
