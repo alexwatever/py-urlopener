@@ -1,36 +1,42 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <h1>Paste your URLs below to open them in new browser tabs.</h1>
-
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-
-  <form id="formURLs">
-    <div class="row">
-      <div class="col s7 offset-s1 left-align input-field">
-        <textarea id="textareaURLs" class="materialize-textarea"></textarea>
-        <label for="textareaURLs" class="white-text">Paste your list of links here, one url per line.</label>
-      </div>
-
-      <div class="col s2 offset-s1 right-align">
-        <button class="btn waves-effect waves-light" id="formLinksOpen" type="submit" name="links_open" onclick="methodType('links_open');">
-          Open Tabs<i class="material-icons right">open_in_new</i>
-        </button>
-
-        <br /><br />
-
-        <button class="btn waves-effect waves-light" id="formLinksList" type="submit" name="links_list" onclick="methodType('links_list');">
-          List URLs<i class="material-icons right">view_list</i>
-        </button>
-      </div>
-    </div>
-  </form>
-
+{% block index %}
   <div class="row">
-    <div class="col s10 offset-s1">
-      <div id="linkCollection" class="collection with-header white left-align hideCollection">
+    <div class="col s12 center">
+      <p>&nbsp;</p>
+      <h1>Paste your URLs below to open them in new browser tabs.</h1>
 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+      <form id="formURLs">
+        <div class="row">
+          <div class="col s7 offset-s1 left-align input-field">
+            <textarea id="textareaURLs" class="materialize-textarea"></textarea>
+            <label for="textareaURLs" class="white-text">Paste your list of links here, one url per line.</label>
+          </div>
+
+          <div class="col s2 offset-s1 right-align">
+            <button class="btn waves-effect waves-light" id="formLinksOpen" type="submit" name="links_open" onclick="methodType('links_open');">
+              Open Tabs<i class="material-icons right">open_in_new</i>
+            </button>
+
+            <br /><br />
+
+            <button class="btn waves-effect waves-light" id="formLinksList" type="submit" name="links_list" onclick="methodType('links_list');">
+              List URLs<i class="material-icons right">view_list</i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col s10 offset-s1">
+          <div id="linkCollection" class="collection with-header white left-align hideCollection">
+
+          </div>
+        </div>
       </div>
     </div>
   </div>

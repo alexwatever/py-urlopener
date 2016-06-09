@@ -83,6 +83,16 @@ nav ul li a:active {
   text-decoration: none;
 }
 
+/* Breadcrumbs */
+#breadcrumbs {
+  background-color: transparent;
+  box-shadow: 0 0 0 transparent;
+}
+
+#breadcrumbs > .nav-wrapper > .col {
+  padding-left: 0;
+}
+
 
 /* Main */
 main {

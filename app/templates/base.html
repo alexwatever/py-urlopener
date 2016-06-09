@@ -6,11 +6,17 @@
   <body class="purple darken-3 white-text">
     {% include 'nav.html' %}
 
-    <main class="valign-wrapper">
+    <main>
       <div class="container">
         <div class="section">
+          {% block index %}{% endblock %}
+
           <div class="row">
-            <div class="col s12 center">
+            <div class="col s12">
+              {% if not title == "Home" %}
+                {% include 'breadcrumbs.html' %}
+              {% endif %}
+
               {% block content %}{% endblock %}
             </div>
           </div>
