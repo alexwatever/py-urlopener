@@ -28,8 +28,11 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">label</i>
-                {{ form.subject(class="validate", required="required") }}
-                {{ form.subject.label }}
+                {% for option in form.topic %}
+                    {{ option }}
+                    {{ option.label }}
+                {% endfor %}
+                {{ form.topic.label }}
             </div>
         </div>
 

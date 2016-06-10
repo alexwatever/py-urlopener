@@ -1,6 +1,6 @@
 import os
 from flask import render_template, request, send_from_directory, flash
-from forms import ContactForm
+from forms import ContactForm, FeedbackForm
 from flask_mail import Mail, Message
 from flask_sitemap import Sitemap
 from jinja2 import Environment, FileSystemLoader
@@ -68,10 +68,45 @@ def contact():
       title='Contact',
       form=form)
 
-@app.route('/feedback')
+@app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
-  return render_template('feedback.html',
-    title='Feedback')
+  # set form
+  form = FeedbackForm()
+  # check request type
+  if request.method == 'POST':
+    # if post then validate submission
+    if form.validate() == False:
+      # if form doesn't validate and flash error
+      for message in form.name.errors:
+        flash(message)
+      for message in form.email.errors:
+        flash(message)
+      for message in form.topic.errors:
+        flash(message)
+      for message in form.message.errors:
+        flash(message)
+      return render_template('feedback.html',
+        title='Feedback',
+        form=form)
+    else:
+      # if form does validate submit form and send email
+      msg = Message(form.topic.data, sender=form.email.data, recipients=[app.config["MAIL_USERNAME"]])
+      msg.body = """
+      From: %s <%s>
+      Subject: %s
+      Message: %s
+      """ % (form.name.data, form.email.data, form.topic.data, form.message.data)
+      mail.send(msg)
+      # return page and flash success
+      flash('Thank you for the message. I\'ll get back to you shortly.')
+      return render_template('feedback.html',
+        title='Feedback',
+        form=form)
+  elif request.method == 'GET':
+    # if get then return page
+    return render_template('feedback.html',
+      title='Feedback',
+      form=form)
 
 @app.route('/privacy')
 def privacy():
