@@ -8,11 +8,11 @@
         <div class="col l3 s12 right-align">
           <h5 class="white-text">Connect</h5>
           <ul>
-            <li><a href="/about" title="About">About</a></li>
-            <li><a href="/contact" title="Contact">Contact</a></li>
-            <li><a href="/feedback" title="Feedback">Feedback</a></li>
+            <li><a href="{{ url_for('about') }}" title="About">About</a></li>
+            <li><a href="{{ url_for('contact') }}" title="Contact">Contact</a></li>
+            <li><a href="{{ url_for('feedback') }}" title="Feedback">Feedback</a></li>
             <li><a href="https://github.com/iamlolz/py-urlopener" title="Github" target="_blank">Github</a></li>
-            <li><a href="/privacy" title="Privacy">Privacy</a></li>
+            <li><a href="{{ url_for('privacy') }}" title="Privacy">Privacy</a></li>
           </ul>
         </div>
       </div>

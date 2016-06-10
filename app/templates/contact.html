@@ -5,5 +5,42 @@
 
   <p>&nbsp;</p>
 
-  <p>Content</p>
+  <div class="row">
+  <form action="{{ url_for('contact') }}" method="post" class="col m6 s12">
+    {{ form.hidden_tag() }}
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form.name(class="validate", required="required") }}
+            {{ form.name.label }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form.email(class="validate", required="required") }}
+            {{ form.email.label }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form.subject(class="validate", required="required") }}
+            {{ form.subject.label }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form.message(class="materialize-textarea", required="required") }}
+            {{ form.message.label }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form.submit(class="waves-effect waves-light btn") }}
+        </div>
+    </div>
+  </form>
 {% endblock %}

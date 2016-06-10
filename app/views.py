@@ -1,16 +1,18 @@
 import os
-from flask import render_template
-from flask import request
-from flask import send_from_directory
+from flask import render_template, request, send_from_directory, flash
+from forms import ContactForm
+from flask_mail import Mail, Message
 from flask_sitemap import Sitemap
 from jinja2 import Environment, FileSystemLoader
 from app import app
 
 
-# sitemap
+# setup mailer
+mail = Mail()
+mail.init_app(app)
+
+# setup sitemap
 ext = Sitemap(app=app)
-# sitemap config
-app.config['SITEMAP_GZIP'] = True
 
 
 # routes
@@ -26,10 +28,45 @@ def about():
     title='About',
     priority='1')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-  return render_template('contact.html',
-    title='Contact')
+  # set form
+  form = ContactForm()
+  # check request type
+  if request.method == 'POST':
+    # if post then validate submission
+    if form.validate() == False:
+      # if form doesn't validate and flash error
+      for message in form.name.errors:
+        flash(message)
+      for message in form.email.errors:
+        flash(message)
+      for message in form.subject.errors:
+        flash(message)
+      for message in form.message.errors:
+        flash(message)
+      return render_template('contact.html',
+        title='Contact',
+        form=form)
+    else:
+      # if form does validate submit form and send email
+      msg = Message(form.subject.data, sender=form.email.data, recipients=[app.config["MAIL_USERNAME"]])
+      msg.body = """
+      From: %s <%s>
+      Subject: %s
+      Message: %s
+      """ % (form.name.data, form.email.data, form.subject.data, form.message.data)
+      mail.send(msg)
+      # return page and flash success
+      flash('Thank you for the message. I\'ll get back to you shortly.')
+      return render_template('contact.html',
+        title='Contact',
+        form=form)
+  elif request.method == 'GET':
+    # if get then return page
+    return render_template('contact.html',
+      title='Contact',
+      form=form)
 
 @app.route('/feedback')
 def feedback():

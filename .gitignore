@@ -5,6 +5,9 @@
 *.mo
 *.log
 app.sock
+mail_username
+mail_password
+secret_key
 
 # dependencies
 flask
