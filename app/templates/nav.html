@@ -1,11 +1,21 @@
   <nav role="navigation">
     <div class="nav-wrapper container">
-      <a href="{{ url_for('index') }}" title="Link Open in Tabs" id="logo-container" class="brand-logo">URL Tab Opener</a>
+      <a href="{{ url_for('index') }}" title="Link Open in Tabs" id="logo-container" class="brand-logo left">URL Tab Opener</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down">
         <li><a href="{{ url_for('index') }}" title="Home Page">Home</a></li>
         <li><a href="{{ url_for('about') }}" title="About">About</a></li>
         <li><a href="{{ url_for('feedback') }}" title="Feedback">Feedback</a></li>
+      </ul>
+
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="{{ url_for('index') }}" title="Home Page">Home</a></li>
+        <li><a href="{{ url_for('about') }}" title="About">About</a></li>
+        <li><a href="{{ url_for('feedback') }}" title="Feedback">Feedback</a></li>
+        <li><a href="{{ url_for('contact') }}" title="Contact">Contact</a></li>
+        <li><a href="https://github.com/iamlolz/py-urlopener" title="Github" target="_blank">Github</a></li>
+        <li><a href="{{ url_for('privacy') }}" title="Privacy">Privacy</a></li>
       </ul>
     </div>
   </nav>

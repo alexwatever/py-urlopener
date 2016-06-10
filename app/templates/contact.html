@@ -6,41 +6,64 @@
   <p>&nbsp;</p>
 
   <div class="row">
-  <form action="{{ url_for('contact') }}" method="post" class="col m6 s12">
-    {{ form.hidden_tag() }}
+    <form action="{{ url_for('contact') }}" method="post" class="col m6 s12">
+        {{ form.hidden_tag() }}
 
-    <div class="row">
-        <div class="input-field col s12">
-            {{ form.name(class="validate", required="required") }}
-            {{ form.name.label }}
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                {{ form.name(class="validate", required="required") }}
+                {{ form.name.label }}
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s12">
-            {{ form.email(class="validate", required="required") }}
-            {{ form.email.label }}
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                {{ form.email(class="validate", required="required") }}
+                {{ form.email.label }}
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s12">
-            {{ form.subject(class="validate", required="required") }}
-            {{ form.subject.label }}
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">label</i>
+                {{ form.subject(class="validate", required="required") }}
+                {{ form.subject.label }}
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s12">
-            {{ form.message(class="materialize-textarea", required="required") }}
-            {{ form.message.label }}
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">message</i>
+                {{ form.message(class="materialize-textarea", required="required") }}
+                {{ form.message.label }}
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s12">
-            {{ form.submit(class="waves-effect waves-light btn") }}
+        <div class="row">
+            <div class="input-field col s12">
+                {{ form.submit(class="waves-effect waves-light btn") }}
+                <p class="hide-on-med-and-up">&nbsp;</p>
+            </div>
         </div>
+    </form>
+
+    <div class="col m5 offset-m1 s12">
+        <ul id="contactCollection" class="col m8 s12 collection hoverable right white">
+            <li class="collection-item avatar grey-text text-darken-3">
+                <img src="static/images/avatar-url-tab-opener.png" alt="URL Tab Opener Image" class="circle" />
+                <p class="right-align">
+                    <span class="title">My Details</span>
+                </p>
+                <p class="right-align grey-text">
+                    <span>Alex Watson</span><br />
+                    <span><span id="iconOctocat"></span>&nbsp;&nbsp;<a href="https://github.com/iamlolz" title="iamlolz Github Page" class="teal-text" target="_blank">iamlolz</a></span><br />
+                    <span><i class="tiny material-icons grey-text text-darken-4">email</i>&nbsp;&nbsp;<a href="mailto:dev.iamlolz@gmail.com" title="Email Me" class="teal-text" target="_blank">dev.iamlolz@gmail.com</a></span><br />
+                    <span><i class="tiny material-icons grey-text text-darken-4">location_on</i>&nbsp;&nbsp;Sunshine Coast, Australia</span>
+                </p>
+            </li>
+        </ul>
     </div>
-  </form>
+  </div>
 {% endblock %}

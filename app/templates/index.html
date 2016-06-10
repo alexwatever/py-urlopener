@@ -3,27 +3,28 @@
 {% block index %}
   <div class="row">
     <div class="col s12 center">
-      <p>&nbsp;</p>
-      <h1>Paste your URLs below to open them in new browser tabs.</h1>
-
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
+      <div class="row">
+        <div class="col s12">
+          <p class="hide-on-small-only">&nbsp;</p>
+          <h1>Paste your URLs below to open them in new browser tabs.</h1>
+          <p class="hide-on-small-only">&nbsp;</p>
+          <p class="hide-on-small-only">&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+      </div>
 
       <form id="formURLs">
         <div class="row">
-          <div class="col s7 offset-s1 left-align input-field">
+          <div class="col m7 offset-m1 s12 left-align input-field">
             <textarea id="textareaURLs" class="materialize-textarea"></textarea>
             <label for="textareaURLs" class="white-text">Paste your list of links here, one url per line.</label>
           </div>
 
-          <div class="col s2 offset-s1 right-align">
+          <div class="col m2 offset-m1 s12 center-align">
             <button class="btn waves-effect waves-light" id="formLinksOpen" type="submit" name="links_open" onclick="methodType('links_open');">
               Open Tabs<i class="material-icons right">open_in_new</i>
             </button>
-
             <br /><br />
-
             <button class="btn waves-effect waves-light" id="formLinksList" type="submit" name="links_list" onclick="methodType('links_list');">
               List URLs<i class="material-icons right">view_list</i>
             </button>
